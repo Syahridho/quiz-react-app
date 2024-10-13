@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { checkLogin, logoutUserAPI } from "../../config/redux/action/action";
 
@@ -25,10 +25,11 @@ const Dashboard = ({ logout, isLogin, user, checkLogin }) => {
   if (isLogout) {
     return <Navigate to={"/login"} />;
   }
+
   return (
     <div className="mx-auto container">
       <div className="flex justify-between items-center py-6 px-10  md:px-20">
-        <h1>Dashboard</h1>
+        <h1 className="font-bold text-slate-800 text-lg">Dashboard Quiz</h1>
         {isLogin ? (
           <button
             onClick={handleLogout}
@@ -54,8 +55,15 @@ const Dashboard = ({ logout, isLogin, user, checkLogin }) => {
         )}
       </div>
       {isLogin ? (
-        <div className="flex justify-center py-10">
-          <p className="font-medium">{user.email}</p>
+        <div className="flex flex-col items-center justify-center gap-2 py-10">
+          <h1 className="font-medium text-xl">Hallo</h1>
+          <p className="mb-6"> {user.email}</p>
+          <Link
+            to={"/quiz"}
+            className="bg-slate-800 text-white  rounded-full px-4 py-2"
+          >
+            Start Quiz
+          </Link>
         </div>
       ) : null}
     </div>

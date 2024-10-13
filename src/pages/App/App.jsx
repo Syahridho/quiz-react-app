@@ -8,6 +8,7 @@ import ResetPassword from "../ResetPassword/ResetPassword";
 
 import { Provider } from "react-redux";
 import storeRedux from "../../config/redux/store/store";
+import Quiz from "../Quiz/Quiz";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
